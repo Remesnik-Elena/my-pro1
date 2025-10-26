@@ -11,8 +11,8 @@ describe("YourContract (Voting)", function () {
   before(async () => {
     [deployer, voter1, voter2] = await ethers.getSigners();
     const factory = await ethers.getContractFactory("YourContract");
-    // Длительность — 60 минут, 4 кандидата
-    yourContract = (await factory.deploy(["Mark", "Mike", "Henry", "Rock"], 60)) as YourContract;
+    // Длительность — 30 минут, 2 кандидата
+    yourContract = (await factory.deploy(["Ivan", "Petr"], 30)) as YourContract;
     await yourContract.waitForDeployment();
   });
 
@@ -22,8 +22,8 @@ describe("YourContract (Voting)", function () {
 
   it("has initial candidates", async function () {
     const candidates = await yourContract.getAllCandidates();
-    expect(candidates.length).to.equal(4);
-    expect(candidates[0].name).to.equal("Mark");
+    expect(candidates.length).to.equal(2);
+    expect(candidates[0].name).to.equal("Ivan");
   });
 
   it("allows voting and prevents double votes", async function () {
@@ -41,8 +41,8 @@ describe("YourContract (Voting)", function () {
   it("owner can add candidate", async function () {
     await yourContract.connect(deployer).addCandidate("NewCandidate");
     const candidates = await yourContract.getAllCandidates();
-    expect(candidates.length).to.equal(5);
-    expect(candidates[4].name).to.equal("NewCandidate");
+    expect(candidates.length).to.equal(3);
+    expect(candidates[2].name).to.equal("NewCandidate");
   });
 
   it("rejects invalid candidate index", async function () {

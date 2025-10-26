@@ -24,7 +24,7 @@ const Home: NextPage = () => {
           </div>
 
           <p className="text-center text-lg mt-4">
-            Контракт реализует систему голосования (файл{" "}
+            Смарт-контракт реализует систему голосования (файл{" "}
             <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
               packages/hardhat/contracts/YourContract.sol
             </code>
@@ -48,8 +48,8 @@ const Home: NextPage = () => {
             <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
               <UsersIcon className="h-8 w-8 fill-secondary" />
               <p className="mt-4">
-                Чтобы голосовать — вызовите <code>vote(index)</code> для нужного кандидата. Система запрещает повторное
-                голосование с одного адреса.
+                Для того, чтобы отдать свой голос — вызовите <code>vote(index)</code> для выбранного кандидата. Система
+                не дает возможность проголосовать повторно с одного адреса.
               </p>
             </div>
           </div>
