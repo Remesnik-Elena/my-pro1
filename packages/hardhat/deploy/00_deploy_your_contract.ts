@@ -12,7 +12,7 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
 
   const deployment = await deploy("YourContract", {
     from: deployer,
-    args: [["Sidorov I.I.", "Petrov P.P."], 30],
+    args: [["Sidorov S.S.", "Petrov P.P."], 30],
     log: true,
   });
 
